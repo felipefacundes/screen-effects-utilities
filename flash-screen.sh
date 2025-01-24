@@ -2,7 +2,30 @@
 # License: GPLv3
 # Credits: Felipe Facundes
 
+: <<'DOCUMENTATION'
 # Script name: flash-screen.sh
+
+The `flash-screen.sh` script is a versatile screen gamma manipulation utility designed 
+to work across both X11 and Wayland display servers. Its key capabilities include:
+
+1. Cross-Platform Compatibility: Dynamically detects and supports both X11 and Wayland environments, 
+with specific gamma control mechanisms for each display server type.
+
+2. Sophisticated Screen Flashing Mechanism: Implements a strobe-like effect by rapidly cycling through 
+predefined gamma configurations, creating a visual flashing or strobing screen effect.
+
+3. Robust Error Handling: Checks for required dependencies like `xrandr` or `wl-gammactl` before execution, 
+providing clear error messages if essential tools are missing.
+
+4. Automatic Settings Restoration: Includes a comprehensive cleanup function that ensures original monitor 
+settings are restored when the script terminates, preventing permanent display configuration changes.
+
+5. Configurable Parameters: Offers flexible gamma configurations for both X11 and Wayland, with adjustable 
+waiting times between gamma changes and multiple gamma preset arrays.
+
+The script demonstrates advanced shell scripting techniques, including conditional execution, trap handling, 
+background process management, and dynamic system environment detection.
+DOCUMENTATION
 
 if [[ ${XDG_SESSION_TYPE,,} == [xX]11 ]] && ! command -v xrandr &> /dev/null; then
     echo "Error: 'xrandr' command not found. Please install it to proceed." >&2

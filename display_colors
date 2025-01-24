@@ -2,7 +2,29 @@
 # License: GPLv3
 # Credits: Felipe Facundes
 
+: <<'DOCUMENTATION'
 # Script name: display_colors
+
+The `display_colors` script is a Bash utility designed to adjust screen gamma and color temperature using xrandr, 
+providing a versatile tool for display customization. Key capabilities include:
+
+1. Supports a wide range of color adjustments, including various shades of blue, red, green, purple, orange, 
+yellow, and more (over 20 predefined color options).
+
+2. Automatically detects connected displays and applies color transformations across all connected screens simultaneously.
+
+3. Includes a comprehensive help function that lists all available color options and provides usage examples, 
+making it user-friendly and accessible.
+
+4. Performs critical system checks, such as verifying xrandr installation and ensuring the session is running on X11, 
+with informative error messages if requirements aren't met.
+
+5. Offers simple command-line usage with case-insensitive color name inputs, allowing users to quickly change 
+screen color gamma with minimal effort (e.g., `./display_colors blue` or `./display_colors reset`).
+
+The script is particularly useful for visual comfort, reducing eye strain, adjusting screen temperature, or creating 
+specific color atmospheres for different working environments.
+DOCUMENTATION
 
 if ! command -v xrandr &> /dev/null; then
     echo "Error: 'xrandr' command not found. Please install it to proceed." >&2
